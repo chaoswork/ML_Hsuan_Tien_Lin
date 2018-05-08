@@ -154,7 +154,74 @@ Answer: 0.3, 0, 0.7, 0.4
 
    Answer: 
 
-   * To find the eigenvectors $v$, solve $det()$
+   * To find the eigenvectors $v$, solve $det(A-\lambda I)v = 0$ for each eigenvalue $\lambda$. [characteristic equation](http://mathworld.wolfram.com/CharacteristicEquation.html)
+     $$
+     det(\begin{bmatrix}
+        3 - \lambda  & 1 & 1 \\
+         2 & 4 - \lambda & 2 \\
+         -1 & -1 & 1 - \lambda
+     \end{bmatrix}) = 0 \\
+     (3-\lambda)det(\begin{bmatrix}
+     	4 - \lambda & 2 \\
+     	-1 & 1 - \lambda
+     \end{bmatrix}) - 
+     det(\begin{bmatrix}
+     	2 & 2 \\
+     	-1 & 1 - \lambda
+     \end{bmatrix}) +
+     det(\begin{bmatrix}
+     	2 & 4 - \lambda  \\
+     	-1 & -1 
+     \end{bmatrix})  = 0\\
+     (3-\lambda)((4-\lambda)(1-\lambda) + 2) -( 2(1-\lambda)+2) + (-2 + (4-\lambda)) = 0 \\
+     (4-\lambda)(\lambda -2)^2 = 0
+     $$
+
+   * given eigenvalue $\lambda = 4$, solve eigenvector
+     $$
+     \begin{bmatrix}
+        3 - \lambda  & 1 & 1 \\
+         2 & 4 - \lambda & 2 \\
+         -1 & -1 & 1 - \lambda
+     \end{bmatrix}
+     \begin{bmatrix}
+     x \\
+     y \\
+     z
+     \end{bmatrix} = 
+     \begin{bmatrix}
+     0 \\
+     0 \\
+     0
+     \end{bmatrix} \\
+
+      \begin{equation}
+     \left\{
+     \begin{aligned}
+     -x + y + z&=0\\
+     2x + 2z&=0\\
+     -x -y -3z&=0
+     \end{aligned}
+     \right.
+     \end{equation} \\
+     $$
+
+
+   $$
+   \begin{equation}
+   \left\{
+   \begin{aligned}
+   x&=-z\\
+   y&=2z\\
+   z&=z
+   \end{aligned}
+   \right.
+   \end{equation}
+   $$
+
+   ​
+
+   * $\lambda = 4, v=(-1,2,1)^T$; $\lambda = 2, v=(1, u, -u-1)^T$
 
 4. (singular value decomposition)
 
@@ -206,4 +273,3 @@ Answer: 0.3, 0, 0.7, 0.4
 6. (vector calculus)
 
    Let **$w$** be a vector in $ R^d $and $E(w) = \frac{1}{2}w^{T}Aw+b^Tw$ for some symmetric matrix A and vector b. Prove that the gradient $\nabla E(w) = Aw + b$ and the Hessian $\nabla^2 E(w) = A$
-
